@@ -5,6 +5,8 @@ from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 from flask_mail import Mail, Message
+import json
+from flask import jsonify
 import os
 secret_key = os.urandom(24) 
 
@@ -182,6 +184,35 @@ def logout():
     flash('Has cerrado sesión correctamente', 'success')
     return redirect(url_for('index'))
 
+@app.route('/exportar-usuarios-json')
+def exportar_usuarios_json():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT id, nombre, email FROM usuarios")  # Ajusta los campos según tu base de datos
+    usuarios = cur.fetchall()
+    cur.close()
+
+    usuarios_lista = [{"id": u[0], "nombre": u[1], "email": u[2]} for u in usuarios]
+
+    ruta_archivo = os.path.join(os.getcwd(), 'usuarios.json')
+    with open(ruta_archivo, 'w', encoding='utf-8') as f:
+        json.dump(usuarios_lista, f, indent=4, ensure_ascii=False)
+
+    return jsonify({"mensaje": "Archivo usuarios.json generado", "ruta": ruta_archivo})
+
+@app.route('/exportar-contactos-json')
+def exportar_contactos_json():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT id, nombre, email, mensaje FROM contactos")  # Ajusta los campos según tu base de datos
+    contactos = cur.fetchall()
+    cur.close()
+
+    contactos_lista = [{"id": c[0], "nombre": c[1], "email": c[2], "mensaje": c[3]} for c in contactos]
+
+    ruta_archivo = os.path.join(os.getcwd(), 'contactos.json')
+    with open(ruta_archivo, 'w', encoding='utf-8') as f:
+        json.dump(contactos_lista, f, indent=4, ensure_ascii=False)
+
+    return jsonify({"mensaje": "Archivo contactos.json generado", "ruta": ruta_archivo})
 
 if __name__ =='__main__':
     app.run(debug=True)
