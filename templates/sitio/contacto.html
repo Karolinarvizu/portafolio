@@ -1,0 +1,44 @@
+{% extends 'sitio/base.html' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+{% endblock %}
+
+{% block content %}
+<!-- Mostrar mensaje de éxito/error si existe -->
+{% if mensaje %}
+<div class="alert alert-{{ 'success' if exito else 'danger' }}">
+    {{ mensaje }}
+</div>
+{% endif %}
+<h1 class="text-center">Contáctame</h1>
+<div class="container mt-4">
+        <!-- Formulario de contacto -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <form action="#" method="POST">
+                    <!-- Nombre -->
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <!-- Correo Electrónico -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <!-- Mensaje -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <!-- Botón de Enviar -->
+                    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                </form>
+            </div>
+        </div>
+        </div>  
+{% endblock %}
+

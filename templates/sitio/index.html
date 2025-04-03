@@ -1,0 +1,27 @@
+{% extends 'sitio/base.html' %}
+
+{% block title %}Inicio - KAS{% endblock %}
+
+{% block content %}
+{% if session['user_name'] %}
+        <div class="container mt-3">
+            <div class="alert alert-success">
+                ¡Bienvenido, {{ session['user_name'] }}! <a href="{{ url_for('logout') }}" class="btn btn-danger">Cerrar sesión</a>
+            </div>
+        </div>
+    {% endif %}
+<div class="text-center">
+    <h1>¡Hola! Soy Karolina Arvizu</h1>
+    <h1>Bienvenido a mi Portafolio</h1>
+    <p>Explora mis proyectos y conoce más sobre mí.</p>
+</div>
+
+<div class="container text-center mt-5">
+    <a href="{{ url_for('portafolio') }}" class="btn btn-primary btn-lg">Ver Portafolio</a>
+    <a href="{{ url_for('contacto') }}" class="btn btn-outline-secondary btn-lg">Contáctame</a>
+</div>
+</div>
+{% endblock %}
+
+    
+        

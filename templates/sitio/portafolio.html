@@ -1,0 +1,39 @@
+{% extends 'sitio/base.html' %}
+
+{% block title %}Portafolio{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active" aria-current="page">Portafolio</li>
+{% endblock %}
+
+{% block content %}
+<h1>Portafolio</h1>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Mis Proyectos</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ url_for('static', filename='images/bomberos.png') }}" class="card-img-top" alt="Proyecto 1">
+                <div class="card-body">
+                    <h5 class="card-title">Bomberos Sonoyta</h5>
+                    <p class="card-text">Sistema de Gestión de Reportes de Novedades.</p>
+                    <a href="https://bomberossonoyta.org/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ url_for('static', filename='images/ss.png') }}" class="card-img-top" alt="Proyecto 2">
+                <div class="card-body">
+                    <h5 class="card-title">Sonoyta Software</h5>
+                    <p class="card-text">Empresa dedicada al desarrollo de software.</p>
+                    <a href="https://www.sonoytasoftware.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

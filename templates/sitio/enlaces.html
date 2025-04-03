@@ -1,0 +1,32 @@
+{% extends 'sitio/base.html' %}
+
+{% block title %}Enlaces{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active" aria-current="page">Enlaces</li>
+{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h3>Sígueme en mis redes sociales</h3>
+    <div class="d-flex justify-content-center mt-3">
+        <a href="https://www.facebook.com/karolina.arvizu.5" target="_blank" class="btn btn-outline-primary me-3">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/karolina.arvizu/" target="_blank" class="btn btn-outline-danger me-3">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/karolina-arvizu-sandoval-4766bb2ba/" target="_blank" class="btn btn-outline-info me-3">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+        <a href="https://github.com/Karolinarvizu" target="_blank" class="btn btn-outline-dark">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </div>
+    <div class="mt-4">
+        <a href="{{ url_for('static', filename='cv/cv.pdf') }}" class="btn btn-success btn-lg" download="mi_cv.pdf">
+            <i class="fas fa-file-download"></i> Descargar mi CV
+        </a>
+    </div>
+</div>
+{% endblock %}

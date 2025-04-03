@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container d-flex align-items-center">
+        <!-- Identificador del sitio -->
+        <a class="navbar-brand d-flex align-items-center me-3" href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/logo porta.png') }}" alt="Logo" width="70" height="70" class="me-2">
+            Karolina Arvizu
+        </a>  
+
+        <!-- Contenedor flexible para centrar el buscador -->
+        <div class="d-flex flex-grow-1 justify-content-center">
+            <form class="d-flex" action="{{ url_for('buscar') }}" method="GET">
+                <input class="form-control me-2" type="search" name="q" placeholder="Buscar..." aria-label="Buscar">
+                <button class="btn btn-outline-primary" type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <!-- Botón de menú para móviles -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Secciones del menú alineadas a la derecha -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('sobre_mi') }}">Sobre Mí</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('portafolio') }}">Portafolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('contacto') }}">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('enlaces') }}">Enlaces</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('mapa') }}">Mapa del sitio</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+        

@@ -1,0 +1,13 @@
+{% extends 'sitio/base.html' %}
+
+{% block title %}Mapa del sitio{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active" aria-current="page">Mapa del sitio</li>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-4">
+    <img src="{{ url_for('static', filename='images/Mapa del sitio web personal.png') }}" alt="Mapa del Sitio" class="img-fluid" style="width: 70%; max-width: 900px;">
+</div>
+{% endblock %}
